@@ -1,10 +1,12 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
+
+// Import Swiper styles
+import 'swiper/swiper.scss';
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
@@ -12,8 +14,13 @@ const BlogIndex = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="All posts" />
-      <Bio />
+      <SEO title="Home" />
+
+      <p>
+        I am a 20 year old web developer from the Netherlands. I work with the LAMP, MEAN and JAM stack to create
+        web applications for my clients as well my own projects.
+      </p>
+
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
         return (

@@ -1,14 +1,14 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Julian Quispel`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Julian Quispel`,
+      summary: `who lives and works in Zwolle building useful things.`,
     },
     description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
+    siteUrl: `https://julianquispel.nl/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `julianquispel`,
     },
   },
   plugins: [
@@ -50,6 +50,7 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-sass`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
@@ -60,8 +61,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Julian Quispel Blog`,
+        short_name: `Julian Quispel`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
