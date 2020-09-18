@@ -2,7 +2,6 @@ import React from "react"
 import { Link } from "gatsby"
 import Bio from './bio'
 import './layout.css'
-import { globalHistory } from '@reach/router/lib/history';
 
 const ListLink = props => (
   <li style={{ display: `inline-block`, marginRight: `1rem` }}>
@@ -10,7 +9,13 @@ const ListLink = props => (
   </li>
 )
 
-export default function Layout({ children }) {
+const Layout = ({ location, title, children }) => {
+  let bio
+
+  if(location.pathname === '/') {
+    bio = <Bio />
+  }
+
   return (
     <div>
       <header
@@ -29,7 +34,7 @@ export default function Layout({ children }) {
               to="/"
               style={{ textShadow: `none`, backgroundImage: `none` }}
             >
-              <h3 style={{ display: `inline` }}>Julian Quispel</h3>
+              <h3 style={{ display: `inline` }}>{title}</h3>
             </Link>
 
             <ul style={{ listStyle: `none`, float: `right` }}>
@@ -40,8 +45,7 @@ export default function Layout({ children }) {
               <ListLink to="/contact/">Contact</ListLink>
             </ul>
           </nav>
-
-          {window.location.pathname === "/" ? <Bio /> : ""}
+          {bio}
         </div>
       </header>
       <div style={{ maxWidth: 900, margin: `auto` }}>{children}</div>
@@ -55,3 +59,5 @@ export default function Layout({ children }) {
     </div>
   )
 }
+
+export default Layout
