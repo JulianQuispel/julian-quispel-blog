@@ -1,7 +1,7 @@
 import Typography from "typography"
-import parnassusTheme from "typography-theme-parnassus";
+import funstonTheme from "typography-theme-funston"
 
-const typography = new Typography(parnassusTheme)
+const typography = new Typography(funstonTheme)
 
 // Hot reload typography in development.
 if (process.env.NODE_ENV !== `production`) {

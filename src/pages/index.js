@@ -5,9 +5,6 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
 
-// Import Swiper styles
-import 'swiper/swiper.scss';
-
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges
@@ -16,11 +13,7 @@ const BlogIndex = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO title="Home" />
 
-      <p>
-        I am a 20 year old web developer from the Netherlands. I work with the LAMP, MEAN and JAM stack to create
-        web applications for my clients as well my own projects.
-      </p>
-
+      <h5 style={{ textTransform: `uppercase`, textAlign: `center`, fontWeight: 600, fontSize: `0.75rem` , padding: `1em 0` }}>Recent Articles</h5>
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
         return (
