@@ -79,10 +79,15 @@ module.exports = {
     },
     `gatsby-plugin-react-helmet`,
     {
-      resolve: `gatsby-plugin-typography`,
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
-        pathToConfigModule: `src/utils/typography`,
-      },
+        fonts: [
+          {
+            family: `Poppins`,
+            variants: [`400`, `500`, `600`]
+          }
+        ]
+      }    
     },
     `gatsby-plugin-offline`,
   ],
