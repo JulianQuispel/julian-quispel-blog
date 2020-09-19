@@ -1,50 +1,50 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { Link } from "gatsby"
+import Layout from '../components/layout';
+import "../styles/styles.scss"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
-
-const BlogIndex = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata.title
-  const posts = data.allMarkdownRemark.edges
+const IndexPage = ({ data, location }) => {
+  const posts = data.posts.edges
+  const projects = data.projects.edges
 
   return (
-    <Layout location={location} title={siteTitle}>
-      <SEO title="Home" />
+    <Layout location={location}>
+      <section>
+        <h5>Recent articles</h5>
+        {posts.map(({ node }) => {
+          const title = node.frontmatter.title || node.fields.slug
+          return (
+            <article key={node.fields.slug}>
+              <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+                <div></div>
+                <small>{node.frontmatter.date}</small>
+                <h3>{title}</h3>
+              </Link>
+            </article>
+          )
+        })}
+      </section>
 
-      <h5 style={{ textTransform: `uppercase`, textAlign: `center`, fontWeight: 600, fontSize: `0.75rem` , padding: `1em 0` }}>Recent Articles</h5>
-      {posts.map(({ node }) => {
-        const title = node.frontmatter.title || node.fields.slug
-        return (
-          <article key={node.fields.slug}>
-            <header>
-              <h3
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
-              >
-                <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                  {title}
-                </Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-            </header>
-            <section>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
-                }}
-              />
-            </section>
-          </article>
-        )
-      })}
+      <section>
+        <h5>Projects</h5>
+        {projects.map(({ node }) => {
+          const title = node.frontmatter.title || node.fields.slug
+          return (
+            <article key={node.fields.slug}>
+              <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+                <div></div>
+                <small>{node.frontmatter.date}</small>
+                <h3>{title}</h3>
+              </Link>
+            </article>
+          )
+        })}
+      </section>
     </Layout>
-  )
+  ) 
 }
 
-export default BlogIndex
+export default IndexPage
 
 export const pageQuery = graphql`
   query {
@@ -53,7 +53,28 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    posts: allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { fileAbsolutePath: { regex: "/blog/" } }
+    ) {
+      edges {
+        node {
+          excerpt
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            title
+            description
+          }
+        }
+      }
+    }
+    projects: allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { fileAbsolutePath: { regex: "/projects/" } }
+    ) {
       edges {
         node {
           excerpt

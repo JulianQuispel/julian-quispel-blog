@@ -1,0 +1,193 @@
+$font: "Poppins", sans-serif;
+$accentColor: #3a7eff;
+$primaryTextColor: #333;
+$accentTextColor: $accentColor;
+$headerTextColor: #fff;
+
+@keyframes wave-animation {
+    0% { transform: rotate( 0.0deg) }
+   10% { transform: rotate(14.0deg) }  /* The following five values can be played with to make the waving more or less extreme */
+   20% { transform: rotate(-8.0deg) }
+   30% { transform: rotate(14.0deg) }
+   40% { transform: rotate(-4.0deg) }
+   50% { transform: rotate(10.0deg) }
+   60% { transform: rotate( 0.0deg) }  /* Reset for the last half to pause */
+  100% { transform: rotate( 0.0deg) }
+}
+
+.clearfix {
+  overflow: auto;
+}
+
+.clearfix::before {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+html,
+body {
+  font-family: $font;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  color: $primaryTextColor;
+}
+
+header {
+  background: $accentColor;
+  display: block;
+  padding: 25px 0;
+  color: $headerTextColor;
+}
+
+main header {
+  background: none;
+  color: $primaryTextColor;
+}
+
+nav {
+  h5 {
+    float: left;
+    font-weight: 500;
+    font-size: 1.2em;
+    vertical-align: middle;
+    line-height: 25px;
+    margin: 0;
+    color: $headerTextColor;
+  }
+
+  ul {
+    list-style: none;
+    float: right;
+    margin: 0;
+    overflow: hidden;
+
+    li {
+      float: left;
+      padding-left: 20px;
+      margin: 0;
+
+      a {
+        color: $headerTextColor;
+        text-decoration: none;
+        opacity: 0.9;
+        transition: 1s color ease-in-out;
+        line-height: 25px;
+        vertical-align: middle;
+
+        &:hover {
+          opacity: 1;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+main {
+  @extend .clearfix;
+
+  width: 900px;
+  margin: 0 auto;
+
+  nav {
+    width: 100%;
+    display: block;
+    
+    ul {
+      display: block;
+      width: 100%;
+      padding-top: 30px;
+      padding-bottom: 50px;
+
+      li a {
+        color: $accentTextColor;
+      }
+    }
+  }
+}
+
+section {
+  @extend .clearfix;
+
+  padding-top: 50px;
+  color: $primaryTextColor;
+
+  h5 {
+    font-weight: 500;
+    text-transform: uppercase;
+    opacity: 0.85;
+    text-align: center;
+  }
+}
+
+article {
+  // width: 300px;
+  padding: 20px;
+  text-align: left;
+  float: left;
+
+  section {
+    padding: 0;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  div {
+    width: 260px;
+    height: 260px;
+    background: lightgrey;
+  }
+
+  small {
+    color: $accentTextColor;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: initial;
+  }
+}
+
+footer {
+  border-top: 8px solid $accentColor;
+  padding: 20px 0;
+
+  .container > span:nth-of-type(2) {
+    float: right;
+  }
+}
+
+.container {
+  @extend .clearfix;
+
+  width: 900px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.jumbo {
+  padding: 100px 0 60px;
+  text-align: center;
+
+  h1 {
+    font-weight: 500;
+
+    span {
+      animation-name: wave-animation;
+      animation-duration: 2.5s;
+      animation-iteration-count: infinite;
+      transform-origin: 70% 70%;
+      display: inline-block;
+    }
+  }
+
+  p {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
