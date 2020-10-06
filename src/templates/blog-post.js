@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import Layout from "../components/layout"
+import SEO from "../components/seo"
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
@@ -8,16 +9,12 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 
   return (
     <Layout location={location}>
+      <SEO title={post.frontmatter.title} />
+
       <article>
         <header>
           <h1>{post.frontmatter.title}</h1>
-          <p
-            style={{
-              display: `block`,
-            }}
-          >
-            {post.frontmatter.date}
-          </p>
+          <p className={`article__date`}>{post.frontmatter.date}</p>
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
       </article>
@@ -28,7 +25,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
             display: `flex`,
             flexWrap: `wrap`,
             justifyContent: `space-between`,
-            listStyle: `none`
+            listStyle: `none`,
           }}
         >
           <li>

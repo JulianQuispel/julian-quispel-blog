@@ -2,9 +2,10 @@
 title: Hello World
 date: "2020-07-12"
 description: "Welcome to my personal blog"
+thumbnail: "./me.png"
 ---
 
-Hello World, welcome to my blog! I originally the idea for my website was to showcase some my
+Hello World, welcome to my blog! Originally the idea for my website was to showcase some my
 work, but since that part of the website is still in construction I decided to use this website as a personal blog as well. 
 
 I am a programmer and an entrepreneur. The desire to be my own boss was in me from a young age. The programming started as an after school hobby, because I wanted to create my own games. Eventually I switched to the wonderful world of the world wide web and I started to create my own websites. During most of the time I was in secondary education I was learning new programming languages and techniques using YouTube and websites like [W3School.com](https://w3schools.com)
