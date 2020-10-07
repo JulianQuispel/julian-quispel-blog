@@ -5,14 +5,30 @@ $accentTextColor: $accentColor;
 $headerTextColor: #fff;
 
 @keyframes wave-animation {
-    0% { transform: rotate( 0.0deg) }
-   10% { transform: rotate(14.0deg) }  /* The following five values can be played with to make the waving more or less extreme */
-   20% { transform: rotate(-8.0deg) }
-   30% { transform: rotate(14.0deg) }
-   40% { transform: rotate(-4.0deg) }
-   50% { transform: rotate(10.0deg) }
-   60% { transform: rotate( 0.0deg) }  /* Reset for the last half to pause */
-  100% { transform: rotate( 0.0deg) }
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(14deg);
+  } /* The following five values can be played with to make the waving more or less extreme */
+  20% {
+    transform: rotate(-8deg);
+  }
+  30% {
+    transform: rotate(14deg);
+  }
+  40% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  } /* Reset for the last half to pause */
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
 .clearfix {
@@ -51,10 +67,12 @@ a {
   text-decoration: none;
 }
 
-nav {
+.nav {
   @extend .clearfix;
+  overflow: hidden;
+  padding: 10px;
 
-  h5 {
+  &__title {
     float: left;
     font-weight: 500;
     font-size: 1.2em;
@@ -64,28 +82,85 @@ nav {
     color: $headerTextColor;
   }
 
-  ul {
-    list-style: none;
+  &__toggle {
     float: right;
-    margin: 0;
+    background: none;
+    border: none;
+    width: 16px;
+    height: 16px;
+    padding: 0;
+    margin: 4px 0;
+
+    &-bar {
+      display: block;
+      width: 16px;
+      height: 2px;
+      margin-bottom: 4px;
+      background: #fff;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 999999;
+    height: 32px;
+    color: rgba(255, 255, 255, 0.8);
+    background: none;
+    text-transform: uppercase;
+    font-weight: 600;
+    border: none;
+    writing-mode: sideways-lr;
+    text-orientation: mixed;
+
+  }
+
+  &__nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: $accentColor;  
     overflow: hidden;
+    z-index: 9999;
+    display: none;
 
-    li {
-      float: left;
-      padding-left: 20px;
+    &--active {
+      display: block;
+    }
+
+    ul {
       margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      list-style: none;
+      height: 100%;
 
-      a {
-        color: $headerTextColor;
-        text-decoration: none;
-        opacity: 0.9;
-        transition: 1s color ease-in-out;
-        line-height: 25px;
-        vertical-align: middle;
+      li {
+        float: left;
+        margin: 0;
 
-        &:hover {
-          opacity: 1;
-          text-decoration: underline;
+        a {
+          display: block;
+          color: $headerTextColor;
+          text-decoration: none;
+          opacity: 0.9;
+          transition: 1s color ease-in-out;
+          line-height: 25px;
+          font-size: 1.2rem;
+          padding: 25px;
+          font-weight: 500;
+          width: 100%;
+
+          &:hover {
+            opacity: 1;
+            text-decoration: underline;
+          }
         }
       }
     }
@@ -105,13 +180,15 @@ main {
   @extend .clearfix;
 
   width: 900px;
-  max-width: 900px;
+  max-width: 100%;
   margin: 0 auto;
+  padding: 10px;
+  box-sizing: border-box;
 
   nav {
     width: 100%;
     display: block;
-    
+
     ul {
       display: block;
       width: 100%;
@@ -128,7 +205,6 @@ main {
 section {
   @extend .clearfix;
 
-  padding-top: 50px;
   color: $primaryTextColor;
 
   h5 {
@@ -136,6 +212,7 @@ section {
     text-transform: uppercase;
     opacity: 0.85;
     text-align: center;
+    padding: 30px 0;
   }
 }
 
@@ -144,10 +221,10 @@ form {
 
   label {
     display: block;
-    color: rgba(0, 0, 0, .6);
+    color: rgba(0, 0, 0, 0.6);
   }
 
-  input, 
+  input,
   textarea {
     padding: 15px;
     border: 2px solid #999;
@@ -191,14 +268,16 @@ article {
   margin: auto;
 
   &.article {
-    width: calc(100% / 3);
-    min-width: 300px;
+    width: 100%;
+    margin-bottom: 30px;
   }
 
-  .article {
+  .article {  
     &__thumbnail {
-      width: 260px;
-      height: 260px; 
+      width: 100%;
+      height: 260px;
+      // width: 260px;
+      // height: 260px;
     }
 
     &__date {
@@ -244,8 +323,10 @@ footer {
   border-top: 8px solid $accentColor;
   padding: 20px 0;
 
-  .container > span:nth-of-type(2) {
-    float: right;
+  .container > span {
+    display: block;
+    text-align: center;
+    line-height: 20px;
   }
 }
 
@@ -282,10 +363,10 @@ footer {
 
 .project {
   padding: 0;
-  padding-bottom: 100px;
+  padding-bottom: 30px;
 
   &__thumbnail {
-    width: 50%;
+    width: 100%;
     height: 260px;
     float: left;
 
@@ -300,18 +381,13 @@ footer {
 
   &__entry {
     float: left;
-    width: 50%;
-    padding-left: 25px;
+    width: 100%;
+    padding-top: 15px;
     box-sizing: border-box;
-
-    &--left {
-      padding-right: 25px;
-      padding-left: 0;
-    }
   }
 
   &__excerpt {
-    color: rgba(0, 0, 0, .8);
+    color: rgba(0, 0, 0, 0.8);
     margin-top: 10px;
   }
 
@@ -320,9 +396,75 @@ footer {
   }
 }
 
-@media only screen and (max-width: 900px) {
-  nav {
-    padding: 25px;
-    box-sizing: border-box;
+@media only screen and (min-width: 900px) {
+  main {
+    padding: 0;
+  }
+
+  .nav {
+    padding: 0;
+
+    &__toggle,
+    &__close {
+      display: none;
+    }
+
+    &__nav {
+      position: static;
+      display: block;
+      float: right;
+      width: auto;
+
+      ul {
+        display: block;        
+
+        li {
+          a {
+            font-size: inherit;
+            padding: 0 15px;
+          }
+        }
+      }
+    }
+  }
+
+  .article {
+    width: calc(100% / 3) !important;
+
+    a {
+      width: 260px;
+      display: block;
+    }
+  }
+
+  .project {
+    padding-bottom: 100px;
+
+    &__thumbnail {
+      width: 50%;
+      float: left;
+
+      &--right {
+        float: right;
+      }
+    }
+
+    &__entry {
+      width: 50%;
+      padding-left: 25px;
+      padding-top: 0;
+
+      &--left {
+        padding-right: 25px;
+        padding-left: 0;
+      }
+
+    }
+  }
+
+  footer {
+    .container > span:nth-child(2) {
+      float: right;
+    }
   }
 }

@@ -33,7 +33,7 @@ const ProjectsPage = ({ data, location }) => {
             />
             <div
               className={
-                `project__entry ` + (index % 2 == 0 ? "project__entry--left" : "")
+                `project__entry ` + (index % 2 === 0 ? "project__entry--left" : "")
               }
             >
               <small>{node.frontmatter.tags.join(", ")}</small>
