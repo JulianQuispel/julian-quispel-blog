@@ -127,7 +127,7 @@ module.exports = {
         short_name: `Julian Quispel`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#663399`,
+        theme_color: `#3a7eff`,
         display: `minimal-ui`,
         icon: `content/assets/icon.jpg`,
       },

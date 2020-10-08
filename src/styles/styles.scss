@@ -419,9 +419,11 @@ footer {
         display: block;        
 
         li {
+          padding-left: 30px;
+
           a {
             font-size: inherit;
-            padding: 0 15px;
+            padding: 0;
           }
         }
       }
@@ -463,6 +465,10 @@ footer {
   }
 
   footer {
+    .container > span:first-child {
+      float: left;
+    }
+
     .container > span:nth-child(2) {
       float: right;
     }

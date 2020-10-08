@@ -9,8 +9,6 @@ const IndexPage = ({ data, location }) => {
   const posts = data.posts.edges
   const projects = data.projects.edges
 
-  console.log(projects)
-
   return (
     <Layout location={location}>
       <SEO title="Home" />
