@@ -11,7 +11,10 @@ const Bio = () => {
   return (
     <div className={`jumbo`}>
       <h1>
-        Hello, my name is Julian Quispel <span role={`img`}>👋</span>
+        Hello, my name is Julian Quispel{" "}
+        <span role={`img`} aria-label={`wave`}>
+          👋
+        </span>
       </h1>
       <p>
         I am a full stack developer from Zwolle, the Netherlands. Most of the

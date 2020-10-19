@@ -27,7 +27,7 @@ const ProjectsPage = ({ data, location }) => {
             <Image
               className={
                 `project__thumbnail ` +
-                (index % 2 == 0 ? "project__thumbnail--right" : "")
+                (index % 2 === 0 ? "project__thumbnail--right" : "")
               }
               fixed={node.frontmatter.thumbnail.childImageSharp.fluid}
             />

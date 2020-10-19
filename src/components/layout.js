@@ -37,7 +37,6 @@ class Layout extends React.Component {
 
     const {
       location,
-      title,
       children
     } = this.props
 

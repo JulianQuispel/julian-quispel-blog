@@ -70,7 +70,7 @@ a {
 .nav {
   @extend .clearfix;
   overflow: hidden;
-  padding: 10px;
+  padding: 0.5rem 1rem;
 
   &__title {
     float: left;
@@ -182,7 +182,7 @@ main {
   width: 900px;
   max-width: 100%;
   margin: 0 auto;
-  padding: 10px;
+  padding: 1rem;
   box-sizing: border-box;
 
   nav {
@@ -340,7 +340,7 @@ footer {
 }
 
 .jumbo {
-  padding: 60px 0;
+  padding: 4rem 1rem;
   text-align: center;
 
   h1 {

@@ -9,7 +9,14 @@ const Footer = ({ siteTitle }) => {
         </span>
 
         <span>
-          Made with <span role={`img`}>❤️</span> in <span role={`img`}>🇳🇱</span>
+          Made with{" "}
+          <span role={`img`} aria-label={`love`}>
+            ❤️
+          </span>{" "}
+          in{" "}
+          <span role={`img`} aria-label={`the Netherlands`}>
+            🇳🇱
+          </span>
         </span>
       </div>
     </footer>
