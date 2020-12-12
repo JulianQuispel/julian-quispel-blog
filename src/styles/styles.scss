@@ -113,7 +113,6 @@ a {
     border: none;
     writing-mode: sideways-lr;
     text-orientation: mixed;
-
   }
 
   &__nav {
@@ -122,7 +121,7 @@ a {
     top: 0;
     width: 100%;
     height: 100%;
-    background: $accentColor;  
+    background: $accentColor;
     overflow: hidden;
     z-index: 9999;
     display: none;
@@ -272,7 +271,7 @@ article {
     margin-bottom: 30px;
   }
 
-  .article {  
+  .article {
     &__thumbnail {
       width: 100%;
       height: 260px;
@@ -416,7 +415,7 @@ footer {
       width: auto;
 
       ul {
-        display: block;        
+        display: block;
 
         li {
           padding-left: 30px;
@@ -460,7 +459,6 @@ footer {
         padding-right: 25px;
         padding-left: 0;
       }
-
     }
   }
 
