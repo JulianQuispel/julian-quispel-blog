@@ -134,12 +134,11 @@ module.exports = {
     },
     `gatsby-plugin-react-helmet`,
     {
-      resolve: `gatsby-plugin-google-fonts`,
+      resolve: "gatsby-plugin-web-font-loader",
       options: {
-        fonts: [
-          `Poppins\:400,500,600`, // you can also specify font weights and styles
-        ],
-        display: "swap",
+        google: {
+          families: ["Poppins:400,500,600"],
+        },
       },
     },
     `gatsby-plugin-offline`,
