@@ -3,7 +3,7 @@ module.exports = {
     title: `Julian Quispel`,
     author: {
       name: `Julian Quispel`,
-      summary: `who lives and works in Zwolle building useful things.`,
+      summary: `who lives and works in Zwolle developing web applications.`,
     },
     description: `The personal website of Julian Quispel where he writes about interesting topics and where he showcases his work.`,
     siteUrl: `https://julianquispel.nl/`,
@@ -134,14 +134,12 @@ module.exports = {
     },
     `gatsby-plugin-react-helmet`,
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          {
-            family: `Poppins`,
-            variants: [`400`, `500`, `600`],
-          },
+          `Poppins\:400,500,600`, // you can also specify font weights and styles
         ],
+        display: "swap",
       },
     },
     `gatsby-plugin-offline`,
