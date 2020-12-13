@@ -18,7 +18,7 @@ const Bio = () => {
       </h1>
       <p>
         I am a full stack developer from Zwolle, the Netherlands. Most of the
-        time, I’m passionately programming web applications using Laravel and
+        time, I am passionately programming web applications using Laravel and
         Vue.js
       </p>
     </div>

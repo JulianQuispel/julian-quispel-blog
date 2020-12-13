@@ -1,7 +1,7 @@
 ---
 title: GameSpider
 date: "2020-07-12"
-description: "A Dutch game archive giving it's users the ability to search for games and compare prices from a variety of webshops."
+description: "A Dutch game archive giving its users the ability to search for games and compare prices from a variety of webshops."
 thumbnail: "./logo.jpg"
 tags:
   - Wordpress

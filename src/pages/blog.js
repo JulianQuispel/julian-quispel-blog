@@ -1,5 +1,6 @@
 import React from "react"
 import Layout from "../components/layout"
+import SEO from "../components/seo"
 import { Link, graphql } from "gatsby"
 import Image from "gatsby-image"
 
@@ -8,6 +9,8 @@ const BlogPage = ({ data, location }) => {
 
   return (
     <Layout location={location}>
+      <SEO title="Blog" />
+
       <header>
         <h1>
           Blog
@@ -20,9 +23,7 @@ const BlogPage = ({ data, location }) => {
         return (
           <article key={node.fields.slug} className={`article`}>
             <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-              <Image
-                fixed={node.frontmatter.thumbnail.childImageSharp.fluid}
-              />
+              <Image fixed={node.frontmatter.thumbnail.childImageSharp.fluid} />
               <small>{node.frontmatter.date}</small>
               <h3>{title}</h3>
             </Link>

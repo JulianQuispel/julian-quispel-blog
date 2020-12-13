@@ -8,7 +8,7 @@ thumbnail: "./me.png"
 Hello World, welcome to my blog! Originally the idea for my website was to showcase some my
 work, but since that part of the website is still in construction I decided to use this website as a personal blog as well. 
 
-I am a programmer and an entrepreneur. The desire to be my own boss was in me from a young age. The programming started as an after school hobby, because I wanted to create my own games. Eventually I switched to the wonderful world of the world wide web and I started to create my own websites. During most of the time I was in secondary education I was learning new programming languages and techniques using YouTube and websites like [W3School.com](https://w3schools.com)
+I am a programmer and an entrepreneur. The desire to be my own boss was in me from a young age. The programming started as an after school hobby, because I wanted to create my own games. Eventually I switched to the wonderful world of the world wide web and I started to create my own websites. During most of the time I was in secondary education I was learning new programming languages and techniques using YouTube and websites like [W3Schools.com](https://w3schools.com)
 
 People often recommended that I'd turn my hobby in a profession. When I was about 17 years old I got paid for the first time. This were mostly small changes to existing websites based on WordPress. After about a year I started getting bigger projects. For these projects, Wordpress was no longer sufficient as a backbone, so I proposed using Laravel, a PHP framework where I had heard so much about. 
 
