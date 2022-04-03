@@ -7,6 +7,7 @@ module.exports = {
     },
     description: `The personal website of Julian Quispel where he writes about interesting topics and where he showcases his work.`,
     siteUrl: `https://julianquispel.nl/`,
+    image: `content/assets/icon.jpg`,
     social: {
       twitter: `julianquispel`,
     },
@@ -56,7 +57,14 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          quality: 80,
+        }
+      }
+    },
     `gatsby-plugin-sass`,
     {
       resolve: `gatsby-plugin-google-analytics`,

@@ -2,14 +2,14 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Link, graphql } from "gatsby"
-import Image from "gatsby-image"
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 const BlogPage = ({ data, location }) => {
   const posts = data.allMarkdownRemark.edges
 
   return (
     <Layout location={location}>
-      <SEO title="Blog" />
+      <SEO title="Blog" slug="blog" />
 
       <header>
         <h1>
@@ -23,7 +23,7 @@ const BlogPage = ({ data, location }) => {
         return (
           <article key={node.fields.slug} className={`article`}>
             <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-              <Image fixed={node.frontmatter.thumbnail.childImageSharp.fluid} />
+              <GatsbyImage image={node.frontmatter.thumbnail.childImageSharp.gatsbyImageData} />
               <small>{node.frontmatter.date}</small>
               <h3>{title}</h3>
             </Link>
@@ -40,7 +40,7 @@ export const pageQuery = graphql`
   query {
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { fileAbsolutePath: { regex: "/blog/" } }
+      filter: { fileAbsolutePath: { regex: "/\/blog\//" } }
     ) {
       edges {
         node {
@@ -54,11 +54,7 @@ export const pageQuery = graphql`
             description
             thumbnail {
               childImageSharp {
-                fluid {
-                  src
-                  srcSet
-                  sizes
-                }
+                gatsbyImageData(layout: FIXED)
               }
             }
           }

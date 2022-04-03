@@ -2,7 +2,13 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { graphql } from "gatsby"
-import Image from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
+
+const getDomain = url => {
+  const urlObj = new URL(url)
+
+  return urlObj.host
+}
 
 const ProjectsPage = ({ data, location }) => {
   const projects = data.allMarkdownRemark.edges
@@ -10,13 +16,13 @@ const ProjectsPage = ({ data, location }) => {
 
   return (
     <Layout location={location}>
-      <SEO title={`Projects`} />
+      <SEO title={`Projects`} slug="projects" />
 
       <header>
         <h1>
           Projects
           <small>Some of my work.</small>
-          </h1>
+        </h1>
       </header>
 
       {projects.map(({ node }) => {
@@ -24,20 +30,26 @@ const ProjectsPage = ({ data, location }) => {
         index++
         return (
           <article key={node.fields.slug} className={`project`}>
-            <Image
+            <GatsbyImage
               className={
                 `project__thumbnail ` +
                 (index % 2 === 0 ? "project__thumbnail--right" : "")
               }
-              fixed={node.frontmatter.thumbnail.childImageSharp.fluid}
+              image={node.frontmatter.thumbnail.childImageSharp.gatsbyImageData}
             />
             <div
               className={
-                `project__entry ` + (index % 2 === 0 ? "project__entry--left" : "")
+                `project__entry ` +
+                (index % 2 === 0 ? "project__entry--left" : "")
               }
             >
               <small>{node.frontmatter.tags.join(", ")}</small>
               <h3>{title}</h3>
+              {node.frontmatter.url && (
+                <a href={node.frontmatter.url} className="project__url">
+                  ↗️ {getDomain(node.frontmatter.url)}
+                </a>
+              )}
               <p className={`project__excerpt`}>
                 {node.frontmatter.description}
               </p>
@@ -68,13 +80,14 @@ export const pageQuery = graphql`
             title
             description
             tags
+            url
             thumbnail {
               childImageSharp {
-                fluid {
-                  src
-                  srcSet
-                  sizes
-                }
+                gatsbyImageData(
+                  width: 400
+                  aspectRatio: 1
+                  formats: [AUTO, WEBP, AVIF]
+                )
               }
             }
           }

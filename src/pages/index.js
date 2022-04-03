@@ -1,6 +1,6 @@
 import React from "react"
-import { Link } from "gatsby"
-import Image from "gatsby-image"
+import { Link, graphql } from "gatsby"
+import { GatsbyImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import "../styles/styles.scss"
@@ -20,9 +20,9 @@ const IndexPage = ({ data, location }) => {
           return (
             <article key={node.fields.slug} className={`article`}>
               <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                <Image
+                <GatsbyImage
                   className={`article__thumbnail`}
-                  fixed={node.frontmatter.thumbnail.childImageSharp.fluid}
+                  image={node.frontmatter.thumbnail.childImageSharp.gatsbyImageData}
                 />
                 <div>
                   <small>{node.frontmatter.date}</small>
@@ -41,9 +41,9 @@ const IndexPage = ({ data, location }) => {
           return (
             <article key={node.fields.slug} className={`article`}>
               <Link style={{ boxShadow: `none` }} to={`projects`}>
-                <Image
+                <GatsbyImage
                   className={`article__thumbnail`}
-                  fixed={node.frontmatter.thumbnail.childImageSharp.fluid}
+                  image={node.frontmatter.thumbnail.childImageSharp.gatsbyImageData}
                 />
                 <div>
                   <small>{node.frontmatter.tags.join(', ')}</small>
@@ -69,7 +69,7 @@ query {
   }
   posts: allMarkdownRemark(
     sort: { fields: [frontmatter___date], order: DESC }
-    filter: { fileAbsolutePath: { regex: "/blog/" } }
+    filter: { fileAbsolutePath: { regex: "/\/blog\//" } }
   ) {
     edges {
       node {
@@ -83,11 +83,10 @@ query {
           description
           thumbnail {
             childImageSharp {
-              fluid {
-                src
-                srcSet
-                sizes
-              }
+              gatsbyImageData(
+                width: 260
+                formats: [AUTO, WEBP, AVIF]
+              )
             }
           }
         }
@@ -96,7 +95,7 @@ query {
   }
   projects: allMarkdownRemark(
     sort: { fields: [frontmatter___date], order: DESC }
-    filter: { fileAbsolutePath: { regex: "/projects/" } }
+    filter: { fileAbsolutePath: { regex: "/\/projects\//" } }
   ) {
     edges {
       node {
@@ -110,11 +109,10 @@ query {
           description
           thumbnail {
             childImageSharp {
-              fluid {
-                src
-                srcSet
-                sizes
-              }
+              gatsbyImageData(
+                width: 260
+                formats: [AUTO, WEBP, AVIF]
+              )
             }
           }
         }
