@@ -3,10 +3,10 @@ import { Link, graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import "../styles/styles.scss"
+import BlogPostPreview from "../components/BlogPostPreview"
 
 const IndexPage = ({ data, location }) => {
-  const posts = data.posts.edges
+  const posts = data.posts.edges.map((edge) => edge.node)
   const projects = data.projects.edges
 
   return (
@@ -14,44 +14,31 @@ const IndexPage = ({ data, location }) => {
       <SEO title="Home" />
 
       <section>
-        <h5>Recent articles</h5>
-        {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug
-          return (
-            <article key={node.fields.slug} className={`article`}>
-              <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                <GatsbyImage
-                  className={`article__thumbnail`}
-                  image={node.frontmatter.thumbnail.childImageSharp.gatsbyImageData}
-                />
-                <div>
-                  <small>{node.frontmatter.date}</small>
-                  <h3>{title}</h3>
-                </div>
-              </Link>
-            </article>
-          )
-        })}
+        <h5>Projects</h5>
+        <div className="grid">
+          {projects.map(({ node }) => {
+            const title = node.frontmatter.title || node.fields.slug
+            return (
+              <article key={node.fields.slug} className="project">
+                <Link style={{ boxShadow: `none` }} to="projects">
+                  <GatsbyImage
+                    className="project__thumbnail"
+                    image={node.frontmatter.thumbnail.childImageSharp.gatsbyImageData}
+                  />
+                  <div>
+                    <small>{node.frontmatter.tags.join(', ')}</small>
+                    <h3>{title}</h3>
+                  </div>
+                </Link>
+              </article>
+            )
+          })}</div>
       </section>
 
       <section>
-        <h5>Projects</h5>
-        {projects.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug
-          return (
-            <article key={node.fields.slug} className={`article`}>
-              <Link style={{ boxShadow: `none` }} to={`projects`}>
-                <GatsbyImage
-                  className={`article__thumbnail`}
-                  image={node.frontmatter.thumbnail.childImageSharp.gatsbyImageData}
-                />
-                <div>
-                  <small>{node.frontmatter.tags.join(', ')}</small>
-                  <h3>{title}</h3>
-                </div>
-              </Link>
-            </article>
-          )
+        <h5>Recent articles</h5>
+        {posts.map(({ fields: { slug }, frontmatter: { title, description, date } }) => {
+          return <BlogPostPreview slug={slug} title={title} description={description} date={date} />
         })}
       </section>
     </Layout>
@@ -69,7 +56,8 @@ query {
   }
   posts: allMarkdownRemark(
     sort: { fields: [frontmatter___date], order: DESC }
-    filter: { fileAbsolutePath: { regex: "/\/blog\//" } }
+    filter: { fileAbsolutePath: { regex: "/\/blog\//" } },
+    limit: 3
   ) {
     edges {
       node {
@@ -96,6 +84,7 @@ query {
   projects: allMarkdownRemark(
     sort: { fields: [frontmatter___date], order: DESC }
     filter: { fileAbsolutePath: { regex: "/\/projects\//" } }
+    limit: 2
   ) {
     edges {
       node {
@@ -110,7 +99,7 @@ query {
           thumbnail {
             childImageSharp {
               gatsbyImageData(
-                width: 260
+                width: 450
                 formats: [AUTO, WEBP, AVIF]
               )
             }

@@ -1,7 +1,7 @@
 ---
 title: Gymspider
 date: "2022-04-03"
-description: "Dutch platform for fitness products"
+description: "Dutch platform for fitness products. Users can compare more than 3000 products"
 thumbnail: "./gymspider.jpg"
 tags:
   - Wordpress

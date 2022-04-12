@@ -3,6 +3,7 @@ import { graphql, StaticQuery } from "gatsby"
 import { Link } from "gatsby"
 import Bio from "./bio"
 import Footer from "./footer"
+import '../styles/styles.scss'
 
 
 const ListLink = props => (

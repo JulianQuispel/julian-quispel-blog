@@ -7,7 +7,7 @@ module.exports = {
     },
     description: `The personal website of Julian Quispel where he writes about interesting topics and where he showcases his work.`,
     siteUrl: `https://julianquispel.nl/`,
-    image: `content/assets/icon.jpg`,
+    image: `/content/assets/icon.jpg`,
     social: {
       twitter: `julianquispel`,
     },
@@ -38,10 +38,13 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
+          `gatsby-remark-external-links`,
           {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 590,
+              showCaptions: [`title`],
+              withWebp: true,
             },
           },
           {
@@ -52,6 +55,7 @@ module.exports = {
           },
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
+          `gatsby-remark-autolink-headers`,
           `gatsby-remark-smartypants`,
         ],
       },
@@ -145,7 +149,7 @@ module.exports = {
       resolve: "gatsby-plugin-web-font-loader",
       options: {
         google: {
-          families: ["Poppins:400,500,600"],
+          families: ["Poppins:300,400,500,600"],
         },
       },
     },
