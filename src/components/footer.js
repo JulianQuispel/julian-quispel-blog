@@ -8,6 +8,23 @@ const Footer = ({ siteTitle }) => {
           {siteTitle} 2012 - {new Date().getFullYear()}
         </span>
 
+        <div className="social-links">
+          <a
+            href="https://www.linkedin.com/in/julianquispel/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Linked In
+          </a>
+          <a
+            href="https://www.twitter.com/julianquispel/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Twitter
+          </a>
+        </div>
+
         <span>
           Made with{" "}
           <span role={`img`} aria-label={`love`}>

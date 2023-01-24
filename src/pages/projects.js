@@ -1,6 +1,6 @@
 import React from "react"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import { graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 
@@ -16,7 +16,7 @@ const ProjectsPage = ({ data, location }) => {
 
   return (
     <Layout location={location}>
-      <SEO title={`Projects`} slug="projects" />
+      <Seo title={`Projects`} slug="projects" />
 
       <header>
         <h1>
@@ -36,7 +36,9 @@ const ProjectsPage = ({ data, location }) => {
                   `project__thumbnail ` +
                   (index % 2 === 0 ? "project__thumbnail--right" : "")
                 }
-                image={node.frontmatter.thumbnail.childImageSharp.gatsbyImageData}
+                image={
+                  node.frontmatter.thumbnail.childImageSharp.gatsbyImageData
+                }
               />
               <div
                 className={

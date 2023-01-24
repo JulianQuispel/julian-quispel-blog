@@ -11,7 +11,7 @@ import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 import { getImage } from "gatsby-plugin-image"
 
-const SEO = ({ description, lang, slug, meta, title }) => {
+const Seo = ({ description, lang, slug, meta, title }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -86,14 +86,14 @@ const SEO = ({ description, lang, slug, meta, title }) => {
   )
 }
 
-SEO.defaultProps = {
+Seo.defaultProps = {
   lang: `en`,
   meta: [],
   slug: ``,
   description: ``,
 }
 
-SEO.propTypes = {
+Seo.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
   slug: PropTypes.string,
@@ -101,4 +101,4 @@ SEO.propTypes = {
   title: PropTypes.string.isRequired,
 }
 
-export default SEO
+export default Seo

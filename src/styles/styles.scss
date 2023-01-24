@@ -165,6 +165,11 @@ a {
           font-weight: 500;
           width: 100%;
 
+          &.active {
+            opacity: 1;
+            text-decoration: underline;
+          }
+
           &:hover {
             opacity: 1;
             text-decoration: underline;
@@ -340,10 +345,28 @@ footer {
   border-top: 8px solid $accentColor;
   padding: 20px 0;
 
-  .container > span {
+  .container>span {
     display: block;
     text-align: center;
     line-height: 20px;
+  }
+
+  .social-links {
+    display: flex;
+    justify-content: center;
+
+    a {
+      margin: 0 5px;
+      background: #fff;
+      font-weight: 500;
+      font-size: 0.8em;
+      border-radius: 8px;
+      padding: 5px 10px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 }
 
@@ -358,8 +381,9 @@ footer {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem 1rem;
+  align-items: start;
 }
 
 .jumbo {
@@ -385,6 +409,8 @@ footer {
 }
 
 .project {
+  height: 100%;
+
   &__thumbnail {
     width: 100%;
     height: auto;
@@ -472,12 +498,61 @@ footer {
   }
 
   footer {
-    .container > span:first-child {
-      float: left;
+    .container {
+      &:before {
+        display: none;
+      }
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}
+
+.about-me {
+  h1 {
+    margin-bottom: 0;
+  }
+
+  h2 {
+    margin-bottom: 0;
+    color: $accentTextColor;
+  }
+
+  &-item {
+    margin-bottom: 25px;
+
+    &-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    .container > span:nth-child(2) {
-      float: right;
+    &-title {
+      margin: 0;
+    }
+
+    &-date {
+      margin-left: 5px;
+      float: left;
+      clear: right;
+      background: $accentColor;
+      border-radius: 20px;
+      font-weight: 500;
+      padding: 5px;
+      font-size: 0.6em;
+      color: $headerTextColor;
+    }
+
+    &-location {
+      display: block;
+      font-size: 0.8em;
+      margin-bottom: 5px;
+    }
+
+    p {
+      margin: 0;
     }
   }
 }

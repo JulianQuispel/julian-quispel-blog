@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 
 const ContactPage = ({ data, location }) => {
   return (
     <Layout location={location}>
-      <SEO title={`Contact`} />
+      <Seo title={`Contact`} />
 
       <header>
         <h1>
@@ -15,7 +15,9 @@ const ContactPage = ({ data, location }) => {
       </header>
 
       <div>
-        Send a mail to <a href={`mailto:hello@julianquispel.nl`}>hello@julianquispel.nl</a> to get in touch with me.
+        Send a mail to{" "}
+        <a href={`mailto:hello@julianquispel.nl`}>hello@julianquispel.nl</a> to
+        get in touch with me.
         {/* <form>
           <label for="name">Name</label>
           <input id="name" type="text" name="text" />

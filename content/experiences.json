@@ -1,0 +1,38 @@
+{
+  "work": [
+    {
+      "from": "2018-04-01",
+      "to": "2019-09-03",
+      "title": "PHP Backend Developer",
+      "employer": "El Niño",
+      "location": "Enschede, The Netherlands",
+      "description": "I worked as a PHP backend developer working with the Laravel framework to develop API's. I learned a lot about working in an international team and deploying applications to production."
+    },
+    {
+      "from": "2022-02",
+      "to": "2022-07",
+      "title": "Internship Tech Hub",
+      "employer": "Wehkamp",
+      "location": "Zwolle, The Netherlands",
+      "description": "In my third year of college I wanted to do an internship to get more familiar with how working in a big organisation is like. Wehkamp, a big online retailer of fashion and living in my hometown Zwolle, seemed like a good fit. For my internship, I compared multiple static site generation frameworks in order to research how Wehkamp can use this technology for their website. I made a custom built version of their existing tech blog on Medium using Gatsby as a proof of concept."
+    }
+  ],
+  "education": [
+    {
+      "from": "2018-09",
+      "to": "2019-07",
+      "title": "Bsc Technical Computer Science",
+      "institution": "University of Twente",
+      "location": "Enschede, The Netherlands",
+      "description": "I wanted to study something technical. I already coded during high school as a hobby and for small clients, so studying Technical Computer Science at the Unversity of Twente (which is around 60 minutes by train from where I live) seemed like a good choice for me. The Computer Science subjects were not too difficult, however the education has a strong mathematical foundation. Because this was my weak spot I wasn't able to get the required points in order to continue this study. That's why I had to find something else."
+    },
+    {
+      "from": "2019-09",
+      "to": "2023-07",
+      "title": "HBO-ICT",
+      "institution": "Windesheim University of Applied Sciences",
+      "location": "Zwolle, The Netherlands",
+      "description": "I didn't want to give up on an education in IT, because it was my passion. I could have gone to a different university, but I wanted to study closer to home. That's why I chose to go to Windesheim which is a university of applied sciences. I really liked the more practical approach and the way of teaching as compared to a regular university. I ultimately chose to graduate in the field of software engineering."
+    }
+  ]
+}

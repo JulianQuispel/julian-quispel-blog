@@ -1,13 +1,19 @@
 import React from "react"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
+import JSONData from "../../content/experiences.json"
+import format from "date-fns/format"
 
-const About = ({ data, location }) => {
+const About = ({ location }) => {
+  const formatDate = date => {
+    return format(new Date(date), "MMM yyyy")
+  }
+
   return (
     <Layout location={location}>
-      <SEO title={`About me`} />
+      <Seo title={`About me`} />
 
-      <header>
+      <main className="about-me">
         <h1>About me</h1>
 
         <p>
@@ -33,7 +39,44 @@ const About = ({ data, location }) => {
           invest in my own projects and work with many different companies and
           people.
         </p>
-      </header>
+
+        <h1>Experiences</h1>
+        <h2>Work</h2>
+        {JSONData.work.map(work => (
+          <div className="about-me-item">
+            <div>
+              <div className="about-me-item-head">
+                <h3 className="about-me-item-title">{work.title}</h3>
+                <span className="about-me-item-date">
+                  {formatDate(work.from)} - {formatDate(work.to)}
+                </span>
+              </div>
+              <span className="about-me-item-location">
+                {work.employer} &bull; {work.location}
+              </span>
+            </div>
+            <p>{work.description}</p>
+          </div>
+        ))}
+
+        <h2>Education</h2>
+        {JSONData.education.map(education => (
+          <div className="about-me-item">
+            <div>
+              <div className="about-me-item-head">
+                <h3 className="about-me-item-title">{education.title}</h3>
+                <span className="about-me-item-date">
+                  {formatDate(education.from)} - {formatDate(education.to)}
+                </span>
+              </div>
+              <span className="about-me-item-location">
+                {education.institution} &bull; {education.location}
+              </span>
+            </div>
+            <p>{education.description}</p>
+          </div>
+        ))}
+      </main>
     </Layout>
   )
 }

@@ -1,6 +1,6 @@
 import React from "react"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import { Link, graphql } from "gatsby"
 
 const BlogPage = ({ data, location }) => {
@@ -8,7 +8,7 @@ const BlogPage = ({ data, location }) => {
 
   return (
     <Layout location={location}>
-      <SEO title="Blog" slug="blog" />
+      <Seo title="Blog" slug="blog" />
 
       <header>
         <h1>
