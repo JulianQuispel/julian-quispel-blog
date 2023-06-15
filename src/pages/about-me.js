@@ -19,7 +19,7 @@ const About = ({ location }) => {
         <p>
           I am Julian Quispel: a developer, student, fitness enthusiast,
           investor, car fanatic and a techie from the Netherlands. Currently,
-          I’m employed as a freelance backend developer while being a student at
+          I’m employed as a freelance full stack developer while being a student at
           the Windesheim University of Applied Sciences in Zwolle. Once I
           learned myself how to write code - to be able to create software
           applications of my own - demand of my services followed. I have been

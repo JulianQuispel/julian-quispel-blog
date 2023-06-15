@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "julian-quispel-blog",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "description": "Personal blog built with Gatsby",
+  "version": "0.1.1",
+  "author": "Julian Quispel",
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
@@ -48,15 +48,16 @@
   "devDependencies": {
     "prettier": "2.0.5"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "homepage": "https://github.com/JulianQuispel/julian-quispel-blog",
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "blog"
   ],
   "license": "0BSD",
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": "git+https://github.com/JulianQuispel/julian-quispel-blog.git"
   },
   "scripts": {
     "build": "gatsby build",

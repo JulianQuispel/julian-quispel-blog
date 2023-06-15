@@ -15,6 +15,14 @@
       "employer": "Wehkamp",
       "location": "Zwolle, The Netherlands",
       "description": "In my third year of college I wanted to do an internship to get more familiar with how working in a big organisation is like. Wehkamp, a big online retailer of fashion and living in my hometown Zwolle, seemed like a good fit. For my internship, I compared multiple static site generation frameworks in order to research how Wehkamp can use this technology for their website. I made a custom built version of their existing tech blog on Medium using Gatsby as a proof of concept."
+    },
+    {
+      "from": "2022-01",
+      "to": "2022-06",
+      "title": "Graduation project",
+      "employer": "Quintor",
+      "location": "Amersfoort, The Netherlands",
+      "description": "In my fourth and final year it was time for me to graduate. Because I did a summer school at Quintor, it also felt like a good fit to do my graduation project there. I chose to do a project in which I would research how the teams could do projects better with the goal of providing a better service for the clients. Based on the results of the research, I developed a full stack web application with ASP.NET Core, Entity Framework and React in which the teams could calculate the quality of their project and get insights on how they can improve."
     }
   ],
   "education": [
